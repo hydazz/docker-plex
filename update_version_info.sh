@@ -1,10 +1,9 @@
 #!/bin/bash
 
-OVERLAY_VERSION=$(cat package_versions.txt | grep -E "s6-overlay.*?-" | sed -n 1p | cut -c 12- | sed -E 's/-r.*//g')
+OVERLAY_VERSION=$(curl -sX GET "https://raw.githubusercontent.com/hydazz/docker-baseimage-ubuntu/groovy/version_info.json" | jq -r .overlay_version)
 
 OLD_OVERLAY_VERSION=$(cat version_info.json | jq -r .overlay_version)
 OLD_PLEX_VERSION=$(cat version_info.json | jq -r .plex_version)
-
 
 sed -i \
 	-e "s/${OLD_OVERLAY_VERSION}/${OVERLAY_VERSION}/g" \
@@ -12,7 +11,7 @@ sed -i \
 	README.md
 
 NEW_VERSION_INFO="overlay_version|plex_version
-${OVERLAY_VERSION}|${PLEX_VERSION}
+${OVERLAY_VERSION}|${PLEX_VERSION}"
 
 jq -Rn '
 ( input  | split("|") ) as $keys |
