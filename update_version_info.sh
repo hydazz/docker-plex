@@ -7,11 +7,11 @@ OLD_PLEX_VERSION=$(cat version_info.json | jq -r .plex_version)
 
 sed -i \
 	-e "s/${OLD_OVERLAY_VERSION}/${OVERLAY_VERSION}/g" \
-	-e "s/${OLD_PLEX_VERSION}/${PLEX_VERSION}/g" \
+	-e "s/${OLD_PLEX_VERSION}/${PLEX_VERSION//-*}/g" \
 	README.md
 
 NEW_VERSION_INFO="overlay_version|plex_version
-${OVERLAY_VERSION}|${PLEX_VERSION}"
+${OVERLAY_VERSION}|${PLEX_VERSION//-*}"
 
 jq -Rn '
 ( input  | split("|") ) as $keys |
