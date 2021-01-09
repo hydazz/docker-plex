@@ -26,5 +26,6 @@ docker run -d \
   --restart unless-stopped \
   vcxpz/plex
 ```
+[![template](https://img.shields.io/badge/unraid_template-ff8c2f?style=for-the-badge&logo=docker?color=d1aa67)](https://github.com/hydazz/docker-templates/blob/main/hydaz/plex.xml)
 
 **Read the official [README](https://github.com/linuxserver/docker-plex/) for more information**
