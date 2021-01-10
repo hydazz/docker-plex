@@ -1,4 +1,4 @@
-FROM vcxpz/baseimage-ubuntu:groovy
+FROM vcxpz/baseimage-ubuntu:focal
 
 # set version label
 ARG BUILD_DATE

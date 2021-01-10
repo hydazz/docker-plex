@@ -6,7 +6,7 @@ Fork of [linuxserver/docker-plex](https://github.com/linuxserver/docker-plex/)
 [Plex](https://plex.tv) organises video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. has always been a top priority. Straightforward design and bulk actions mean getting things done faster.
 
 ## Version Information
-![ubuntu](https://img.shields.io/badge/ubuntu-groovy-E95420?style=for-the-badge&logo=ubuntu) ![s6 overlay](https://img.shields.io/badge/s6_overlay-2.1.0.2-blue?style=for-the-badge) ![plex](https://img.shields.io/badge/plex-1.21.1.3876-E5A00D?style=for-the-badge&logo=plex)
+![ubuntu](https://img.shields.io/badge/ubuntu-focal-E95420?style=for-the-badge&logo=ubuntu) ![s6 overlay](https://img.shields.io/badge/s6_overlay-2.1.0.2-blue?style=for-the-badge) ![plex](https://img.shields.io/badge/plex-1.21.1.3876-E5A00D?style=for-the-badge&logo=plex)
 
 **[See here for a list of packages](https://github.com/hydazz/docker-plex/blob/main/package_versions.txt)**
 
