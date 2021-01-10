@@ -20,7 +20,7 @@ ENV DEBIAN_FRONTEND="noninteractive" \
    PLEX_MEDIA_SERVER_INFO_VENDOR="Docker" \
    PLEX_MEDIA_SERVER_INFO_DEVICE="Docker Container (hyadz)"
 
-RUN set -x && \
+RUN set -xe && \
    echo "**** install runtime packages ****" && \
    apt-get update && \
    apt-get install -y \
