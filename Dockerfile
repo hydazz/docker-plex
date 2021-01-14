@@ -2,17 +2,13 @@ FROM vcxpz/baseimage-ubuntu:groovy
 
 # set version label
 ARG BUILD_DATE
-ARG VERSION
-LABEL build_version="Plex version:- ${VERSION} Build-date:- ${BUILD_DATE}"
+ARG PLEX_RELEASE
+LABEL build_version="Plex version:- ${PLEX_RELEASE} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="hydaz"
-
-# add needed nvidia environment variables for https://github.com/NVIDIA/nvidia-docker
-ENV NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
 
 # global environment settings
 ENV DEBIAN_FRONTEND="noninteractive" \
    PLEX_DOWNLOAD="https://downloads.plex.tv/plex-media-server-new" \
-   PLEX_ARCH="amd64" \
    PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR="/config/Library/Application Support" \
    PLEX_MEDIA_SERVER_HOME="/usr/lib/plexmediaserver" \
    PLEX_MEDIA_SERVER_MAX_PLUGIN_PROCS="6" \
@@ -24,27 +20,32 @@ RUN set -xe && \
    echo "**** install runtime packages ****" && \
    apt-get update && \
    apt-get install -y \
-      beignet-opencl-icd \
       jq \
-      ocl-icd-libopencl1 \
       udev \
       unrar \
       wget && \
-   COMP_RT_RELEASE=$(curl -sX GET "https://api.github.com/repos/intel/compute-runtime/releases/latest" | jq -r '.tag_name') && \
-   COMP_RT_URLS=$(curl -sX GET "https://api.github.com/repos/intel/compute-runtime/releases/tags/${COMP_RT_RELEASE}" | jq -r '.body' | grep wget | sed 's|wget ||g') && \
-   mkdir -p /opencl-intel && \
-   for i in ${COMP_RT_URLS}; do \
-      i=$(echo ${i} | tr -d '\r'); \
-      echo "**** downloading ${i} ****"; \
-      curl -o "/opencl-intel/$(basename ${i})" \
-            -L "${i}"; \
-   done && \
-   dpkg -i /opencl-intel/*.deb && \
-   rm -rf /opencl-intel && \
+   if [ $(arch) = "amd64" ]; then \
+      apt-get install -y \
+           beignet-opencl-icd \
+           ocl-icd-libopencl1; \
+      COMP_RT_RELEASE=$(curl -sX GET "https://api.github.com/repos/intel/compute-runtime/releases/latest" | jq -r '.tag_name'); \
+      COMP_RT_URLS=$(curl -sX GET "https://api.github.com/repos/intel/compute-runtime/releases/tags/${COMP_RT_RELEASE}" | jq -r '.body' | grep wget | sed 's|wget ||g'); \
+      mkdir -p /opencl-intel; \
+      for i in ${COMP_RT_URLS}; do \
+           i=$(echo ${i} | tr -d '\r'); \
+           echo "**** downloading ${i} ****"; \
+           curl -o "/opencl-intel/$(basename ${i})" \
+                -L "${i}"; \
+      done; \
+      dpkg -i /opencl-intel/*.deb; \
+      rm -rf /opencl-intel; \
+      export NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"; \
+   fi && \
+   PLEX_ARCH=$(curl -sSL https://raw.githubusercontent.com/hydazz/scripts/main/docker/ubuntu-archer.sh | bash) && \
    echo "**** install plex ****" && \
    curl -o \
       /tmp/plexmediaserver.deb -L \
-      "${PLEX_DOWNLOAD}/${VERSION}/debian/plexmediaserver_${VERSION}_${PLEX_ARCH}.deb" && \
+      "${PLEX_DOWNLOAD}/${PLEX_RELEASE}/debian/plexmediaserver_${PLEX_RELEASE}_${PLEX_ARCH}.deb" && \
    dpkg -i /tmp/plexmediaserver.deb && \
    echo "**** ensure abc user's home folder is /app ****" && \
    usermod -d /app abc && \
