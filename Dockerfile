@@ -24,7 +24,7 @@ RUN set -xe && \
       udev \
       unrar \
       wget && \
-   if [ $(arch) = "amd64" ]; then \
+   if [ "$(arch)" = "x86_64" ]; then \
       apt-get install -y \
            beignet-opencl-icd \
            ocl-icd-libopencl1; \
