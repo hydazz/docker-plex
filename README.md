@@ -8,7 +8,7 @@ Fork of [linuxserver/docker-plex](https://github.com/linuxserver/docker-plex/)
 
 ## Version Information
 
-![ubuntu](https://img.shields.io/badge/ubuntu-groovy-E95420?style=for-the-badge&logo=ubuntu) ![s6 overlay](https://img.shields.io/badge/s6_overlay-v2.1.0.2-blue?style=for-the-badge) ![plex](https://img.shields.io/badge/plex-1.21.1.3876-E5A00D?style=for-the-badge&logo=plex)
+![ubuntu](https://img.shields.io/badge/ubuntu-groovy-E95420?style=for-the-badge&logo=ubuntu) ![s6 overlay](https://img.shields.io/badge/s6_overlay-2.1.0.2-blue?style=for-the-badge) ![plex](https://img.shields.io/badge/plex-1.21.1.3876-E5A00D?style=for-the-badge&logo=plex)
 
 **[See here for a list of packages](https://github.com/hydazz/docker-plex/blob/main/package_versions.txt)**
 
