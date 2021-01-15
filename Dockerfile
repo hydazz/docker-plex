@@ -43,7 +43,7 @@ RUN set -xe && \
    fi && \
    PLEX_ARCH=$(curl -sSL https://raw.githubusercontent.com/hydazz/scripts/main/docker/ubuntu-archer.sh | bash) && \
    echo "**** install plex ****" && \
-   curl -o \
+   curl --silent -o \
       /tmp/plexmediaserver.deb -L \
       "${PLEX_DOWNLOAD}/${PLEX_RELEASE}/debian/plexmediaserver_${PLEX_RELEASE}_${PLEX_ARCH}.deb" && \
    dpkg -i /tmp/plexmediaserver.deb && \
