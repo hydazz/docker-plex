@@ -1,6 +1,6 @@
 ## docker-plex
 
-[![docker hub](https://img.shields.io/badge/docker_hub-link-blue?style=for-the-badge&logo=docker)](https://hub.docker.com/r/vcxpz/plex) ![docker image size](https://img.shields.io/docker/image-size/vcxpz/plex?style=for-the-badge&logo=docker) [![auto build](https://img.shields.io/badge/docker_builds-automated-blue?style=for-the-badge&logo=docker?color=d1aa67)](https://github.com/hydazz/docker-plex/actions?query=workflow%3A"Auto+Builder+CI") [![codacy branch grade](https://img.shields.io/codacy/grade/0ee0399940b24ddcaf834284ab75e952/main?style=for-the-badge)](https://app.codacy.com/gh/hydazz/docker-plex)
+[![docker hub](https://img.shields.io/badge/docker_hub-link-blue?style=for-the-badge&logo=docker)](https://hub.docker.com/r/vcxpz/plex) ![docker image size](https://img.shields.io/docker/image-size/vcxpz/plex?style=for-the-badge&logo=docker) [![auto build](https://img.shields.io/badge/docker_builds-automated-blue?style=for-the-badge&logo=docker?color=d1aa67)](https://github.com/hydazz/docker-plex/actions?query=workflow%3A"Auto+Builder+CI") [![codacy branch grade](https://img.shields.io/codacy/grade/0ee0399940b24ddcaf834284ab75e952/main?style=for-the-badge&logo=codacy)](https://app.codacy.com/gh/hydazz/docker-plex)
 
 Fork of [linuxserver/docker-plex](https://github.com/linuxserver/docker-plex/)
 
@@ -10,7 +10,7 @@ Fork of [linuxserver/docker-plex](https://github.com/linuxserver/docker-plex/)
 
 ![ubuntu](https://img.shields.io/badge/ubuntu-groovy-E95420?style=for-the-badge&logo=ubuntu) ![s6 overlay](https://img.shields.io/badge/s6_overlay-2.1.0.2-blue?style=for-the-badge) ![plex](https://img.shields.io/badge/plex-1.21.1.3876-E5A00D?style=for-the-badge&logo=plex)
 
-**[See here for a list of packages](https://github.com/hydazz/docker-plex/blob/main/package_versions.txt)**
+See [package_versions.txt](package_versions.txt) for a full list of the packages and package versions used in this image
 
 ## Usage
 
@@ -30,4 +30,4 @@ Fork of [linuxserver/docker-plex](https://github.com/linuxserver/docker-plex/)
 
 [![template](https://img.shields.io/badge/unraid_template-ff8c2f?style=for-the-badge&logo=docker?color=d1aa67)](https://github.com/hydazz/docker-templates/blob/main/hydaz/plex.xml)
 
-**Read the official [README](https://github.com/linuxserver/docker-plex/) for more information**
+**Read the official [README.md](https://github.com/linuxserver/docker-plex/) for more information**
