@@ -91,11 +91,11 @@ INSTALLED_VERSION=$(dpkg-query -W -f='${Version}' plexmediaserver)
 
 # start update routine
 if [[ "${VERSION,,}" = latest ]] || [[ "${VERSION,,}" = plexpass ]] || [[ "$PLEXPASS" == "1" ]]; then
-	if [[ "${PLEX_ARCH}" = amd64 ]]; then
+	if [[ "$(arch)" = "x86_64" ]]; then
 		PLEX_URL_ARCH="x86_64"
-	elif [[ "${PLEX_ARCH}" = armhf ]]; then
+	elif [[ "$(arch)" = "armv7"* ]]; then
 		PLEX_URL_ARCH="armv7hf_neon"
-	elif [[ "${PLEX_ARCH}" = arm64 ]]; then
+	elif [[ "$(arch)" = "aarch64" ]]; then
 		PLEX_URL_ARCH="aarch64"
 	fi
 	REMOTE_VERSION=$(curl -s "https://plex.tv/downloads/details/5?distro=debian&build=linux-${PLEX_URL_ARCH}&channel=8&X-Plex-Token=$PLEX_TOKEN" | grep -oP 'version="\K[^"]+' | tail -n 1)
