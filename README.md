@@ -1,6 +1,6 @@
 ## docker-plex
 
-[![docker hub](https://img.shields.io/badge/docker_hub-link-blue?style=for-the-badge&logo=docker)](https://hub.docker.com/r/vcxpz/plex) ![docker image size](https://img.shields.io/docker/image-size/vcxpz/plex?style=for-the-badge&logo=docker) [![auto build](https://img.shields.io/badge/docker_builds-automated-blue?style=for-the-badge&logo=docker?color=d1aa67)](https://github.com/hydazz/docker-plex/actions?query=workflow%3A"Auto+Builder+CI")
+[![docker hub](https://img.shields.io/badge/docker_hub-link-blue?style=for-the-badge&logo=docker)](https://hub.docker.com/r/vcxpz/plex) ![docker image size](https://img.shields.io/docker/image-size/vcxpz/plex?style=for-the-badge&logo=docker) [![auto build](https://img.shields.io/badge/docker_builds-automated-blue?style=for-the-badge&logo=docker?color=d1aa67)](https://github.com/hydazz/docker-plex/actions?query=workflow%3A"Auto+Builder+CI") [![codacy branch grade](https://img.shields.io/codacy/grade/0ee0399940b24ddcaf834284ab75e952/main?style=for-the-badge)](https://app.codacy.com/gh/hydazz/docker-plex)
 
 Fork of [linuxserver/docker-plex](https://github.com/linuxserver/docker-plex/)
 
