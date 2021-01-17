@@ -35,9 +35,9 @@ init-system-helpers1.58
 intel-gmmlib20.3.2
 intel-igc-core1.0.5964
 intel-igc-opencl1.0.5964
-intel-level-zero-gpu1.0.18793
-intel-ocloc21.01.18793
-intel-opencl21.01.18793
+intel-level-zero-gpu1.0.18820
+intel-ocloc21.02.18820
+intel-opencl21.02.18820
 jq1.6-1
 libacl12.2.53-8
 libapt-pkg6.02.1.10ubuntu0.1
