@@ -2,8 +2,8 @@ FROM vcxpz/baseimage-ubuntu:groovy
 
 # set version label
 ARG BUILD_DATE
-ARG PLEX_RELEASE
-LABEL build_version="Plex version:- ${PLEX_RELEASE} Build-date:- ${BUILD_DATE}"
+ARG VERSION
+LABEL build_version="Plex version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="hydaz"
 
 # global environment settings
@@ -45,7 +45,7 @@ RUN set -xe && \
    echo "**** install plex ****" && \
    curl --silent -o \
       /tmp/plexmediaserver.deb -L \
-      "${PLEX_DOWNLOAD}/${PLEX_RELEASE}/debian/plexmediaserver_${PLEX_RELEASE}_${PLEX_ARCH}.deb" && \
+      "${PLEX_DOWNLOAD}/${VERSION}/debian/plexmediaserver_${VERSION}_${PLEX_ARCH}.deb" && \
    dpkg -i /tmp/plexmediaserver.deb && \
    echo "**** ensure abc user's home folder is /app ****" && \
    usermod -d /app abc && \
