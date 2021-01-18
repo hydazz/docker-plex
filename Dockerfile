@@ -16,7 +16,7 @@ ENV DEBIAN_FRONTEND="noninteractive" \
    PLEX_MEDIA_SERVER_INFO_VENDOR="Docker" \
    PLEX_MEDIA_SERVER_INFO_DEVICE="Docker Container (hyadz)"
 
-RUN set -xe && \
+RUN \
    echo "**** install runtime packages ****" && \
    apt-get update && \
    apt-get install -y \
@@ -34,7 +34,7 @@ RUN set -xe && \
       for i in ${COMP_RT_URLS}; do \
            i=$(echo ${i} | tr -d '\r'); \
            echo "**** downloading ${i} ****"; \
-           curl -o "/opencl-intel/$(basename ${i})" \
+           curl --silent -o "/opencl-intel/$(basename ${i})" \
                 -L "${i}"; \
       done; \
       dpkg -i /opencl-intel/*.deb; \
