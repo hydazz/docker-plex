@@ -20,42 +20,42 @@ RUN \
    echo "**** install runtime packages ****" && \
    apt-get update && \
    apt-get install -y \
-      jq \
-      udev \
-      unrar \
-      wget && \
+     jq \
+     udev \
+     unrar \
+     wget && \
    if [ "$(arch)" = "x86_64" ]; then \
-      apt-get install -y \
-           beignet-opencl-icd \
-           ocl-icd-libopencl1; \
-      COMP_RT_RELEASE=$(curl -sX GET "https://api.github.com/repos/intel/compute-runtime/releases/latest" | jq -r '.tag_name'); \
-      COMP_RT_URLS=$(curl -sX GET "https://api.github.com/repos/intel/compute-runtime/releases/tags/${COMP_RT_RELEASE}" | jq -r '.body' | grep wget | sed 's|wget ||g'); \
-      mkdir -p /opencl-intel; \
-      for i in ${COMP_RT_URLS}; do \
-           i=$(echo ${i} | tr -d '\r'); \
-           echo "**** downloading ${i} ****"; \
-           curl --silent -o "/opencl-intel/$(basename ${i})" \
-                -L "${i}"; \
-      done; \
-      dpkg -i /opencl-intel/*.deb; \
-      rm -rf /opencl-intel; \
-      export NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"; \
+     apt-get install -y \
+          beignet-opencl-icd \
+          ocl-icd-libopencl1; \
+     COMP_RT_RELEASE=$(curl -sX GET "https://api.github.com/repos/intel/compute-runtime/releases/latest" | jq -r '.tag_name'); \
+     COMP_RT_URLS=$(curl -sX GET "https://api.github.com/repos/intel/compute-runtime/releases/tags/${COMP_RT_RELEASE}" | jq -r '.body' | grep wget | sed 's|wget ||g'); \
+     mkdir -p /opencl-intel; \
+     for i in ${COMP_RT_URLS}; do \
+          i=$(echo ${i} | tr -d '\r'); \
+          echo "**** downloading ${i} ****"; \
+          curl --silent -o "/opencl-intel/$(basename ${i})" \
+              -L "${i}"; \
+     done; \
+     dpkg -i /opencl-intel/*.deb; \
+     rm -rf /opencl-intel; \
+     export NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"; \
    fi && \
    PLEX_ARCH=$(curl -sSL https://raw.githubusercontent.com/hydazz/scripts/main/docker/ubuntu-archer.sh | bash) && \
    echo "**** install plex ****" && \
    curl --silent -o \
-      /tmp/plexmediaserver.deb -L \
-      "${PLEX_DOWNLOAD}/${VERSION}/debian/plexmediaserver_${VERSION}_${PLEX_ARCH}.deb" && \
+     /tmp/plexmediaserver.deb -L \
+     "${PLEX_DOWNLOAD}/${VERSION}/debian/plexmediaserver_${VERSION}_${PLEX_ARCH}.deb" && \
    dpkg -i /tmp/plexmediaserver.deb && \
    echo "**** ensure abc user's home folder is /app ****" && \
    usermod -d /app abc && \
    echo "**** cleanup ****" && \
    apt-get clean && \
    rm -rf \
-      /etc/default/plexmediaserver \
-      /tmp/* \
-      /var/lib/apt/lists/* \
-      /var/tmp/*
+     /etc/default/plexmediaserver \
+     /tmp/* \
+     /var/lib/apt/lists/* \
+     /var/tmp/*
 
 # add local files
 COPY root/ /
