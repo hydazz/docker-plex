@@ -1,3 +1,4 @@
+ARG TAG
 FROM vcxpz/baseimage-ubuntu:groovy
 
 # set version label
