@@ -11,7 +11,7 @@ on:
       - released
 
 jobs:
-  ubuntu-edge:
+  ubuntu-groovy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -43,12 +43,12 @@ jobs:
           docker buildx build \
             --platform=linux/amd64 \
             --output "type=image,push=true" \
-            --build-arg TAG=edge \
+            --build-arg TAG=groovy \
             --build-arg BUILD_DATE="$(date +%Y-%m-%d)" \
             --build-arg VERSION=$(curl -sX GET "https://api.github.com/repos/hydazz/docker-plex/releases/latest" | jq -r .tag_name) \
             --tag vcxpz/plex:latest \
             --tag vcxpz/plex:$(curl -sX GET "https://api.github.com/repos/hydazz/docker-plex/releases/latest" | jq -r .tag_name) \
-            --tag vcxpz/plex:edge \
+            --tag vcxpz/plex:groovy \
             --file Dockerfile .
 
       - name: Get New Package Versions From Image
