@@ -38,7 +38,7 @@ intel-igc-opencl1.0.5964
 intel-level-zero-gpu1.0.18820
 intel-ocloc21.02.18820
 intel-opencl21.02.18820
-jq1.6-1
+jq1.6-1ubuntu0.20.10.1
 libacl12.2.53-8
 libapt-pkg6.02.1.10ubuntu0.1
 libasn1-8-heimdal7.7.0+dfsg-2
@@ -76,7 +76,7 @@ libheimntlm0-heimdal7.7.0+dfsg-2
 libhogweed63.6-2
 libhx509-5-heimdal7.7.0+dfsg-2
 libidn2-02.3.0-1
-libjq11.6-1
+libjq11.6-1ubuntu0.20.10.1
 libk5crypto31.17-10ubuntu0.1
 libkeyutils11.6.1-2ubuntu1
 libkmod227+20200310-2ubuntu1
