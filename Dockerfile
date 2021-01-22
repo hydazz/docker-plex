@@ -42,7 +42,7 @@ RUN \
      rm -rf /opencl-intel; \
      export NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"; \
    fi && \
-   PLEX_ARCH=$(curl -sSL https://raw.githubusercontent.com/hydazz/scripts/main/docker/ubuntu-archer.sh | bash) && \
+   PLEX_ARCH=$(curl -sSL https://raw.githubusercontent.com/hydazz/docker-utils/main/docker/ubuntu-archer.sh | bash) && \
    echo "**** install plex ****" && \
    curl --silent -o \
      /tmp/plexmediaserver.deb -L \
