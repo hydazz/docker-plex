@@ -36,7 +36,7 @@ RUN \
           i=$(echo ${i} | tr -d '\r'); \
           echo "**** downloading ${i} ****"; \
           curl --silent -o "/opencl-intel/$(basename ${i})" \
-              -L "${i}"; \
+               -L "${i}"; \
      done; \
      dpkg -i /opencl-intel/*.deb; \
      rm -rf /opencl-intel; \

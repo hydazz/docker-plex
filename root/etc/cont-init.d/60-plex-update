@@ -1,5 +1,7 @@
 #!/usr/bin/with-contenv bash
 
+PLEX_ARCH=$(curl -sSL https://raw.githubusercontent.com/hydazz/scripts/main/docker/ubuntu-archer.sh | bash)
+
 # If docker manages versioning exit
 if [ "${VERSION}" ] && [ "${VERSION}" == 'docker' ]; then
 	echo "Docker is used for versioning skip update check"
