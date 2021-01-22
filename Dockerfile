@@ -63,7 +63,7 @@ COPY root/ /
 
 # plex healthcheck
 HEALTHCHECK --start-period=10s --timeout=5s \
-   CMD curl --fail 'http://localhost:32400/identity/' || exit 1
+   CMD curl --fail 'http://localhost:32400/identity' || exit 1
 
 # ports and volumes
 EXPOSE 32400/tcp 1900/udp 3005/tcp 5353/udp 8324/tcp 32410/udp 32412/udp 32413/udp 32414/udp 32469/tcp
