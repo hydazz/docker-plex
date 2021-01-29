@@ -1,41 +1,5 @@
 #!/bin/bash
 
-echo "## docker-plex
-
-[![docker hub](https://img.shields.io/badge/docker_hub-link-blue?style=for-the-badge&logo=docker)](https://hub.docker.com/r/vcxpz/plex) ![docker image size](https://img.shields.io/docker/image-size/vcxpz/plex?style=for-the-badge&logo=docker) [![auto build](https://img.shields.io/badge/docker_builds-automated-blue?style=for-the-badge&logo=docker?color=d1aa67)](https://github.com/hydazz/docker-plex/actions?query=workflow%3A\"Auto+Builder+CI\") [![codacy branch grade](https://img.shields.io/codacy/grade/0ee0399940b24ddcaf834284ab75e952/main?style=for-the-badge&logo=codacy)](https://app.codacy.com/gh/hydazz/docker-plex)
-
-Fork of [linuxserver/docker-plex](https://github.com/linuxserver/docker-plex/)
-
-[Plex](https://plex.tv) organises video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. has always been a top priority. Straightforward design and bulk actions mean getting things done faster.
-
-## Version Information
-
-![ubuntu](https://img.shields.io/badge/ubuntu-groovy-E95420?style=for-the-badge&logo=ubuntu) ![plex](https://img.shields.io/badge/plex-${APP_VERSION//-*}-E5A00D?style=for-the-badge&logo=plex)
-
-See [package_versions.txt](package_versions.txt) for a full list of the packages and package versions used in this image
-
-## Usage
-
-    docker run -d \\
-      --name=plex \\
-      --net=host \\
-      -e PUID=1000 \\
-      -e PGID=1000 \\
-      -e VERSION=docker \\
-      -e UMASK_SET=022 \`#optional\` \\
-      -e PLEX_CLAIM= \`#optional\` \\
-      -v <path to appdata>:/config \\
-      -v <path to tv>:/tv \\
-      -v <path to movies>:/movies \\
-      --restart unless-stopped \\
-      vcxpz/plex
-
-[![template](https://img.shields.io/badge/unraid_template-ff8c2f?style=for-the-badge&logo=docker?color=d1aa67)](https://github.com/hydazz/docker-templates/blob/main/hydaz/plex.xml)
-
-## New Environment Variables
-
-| Name    | Description                                                                                              | Default Value |
-| ------- | -------------------------------------------------------------------------------------------------------- | ------------- |
-| \`DEBUG\` | set \`true\` to display errors in the Docker logs. When set to \`false\` the Docker log is completely muted. | \`false\`       |
-
-**See other variables on the official [README](https://github.com/linuxserver/docker-plex/)**" >README.md
+sed -i -E \
+	-e "s/plex-.*?-E5A00D/plex-${APP_VERSION//-*/}-E5A00D/g" \
+	README.md
