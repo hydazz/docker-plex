@@ -1,13 +1,18 @@
 #!/usr/bin/with-contenv bash
 
-PLEX_ARCH=$(curl -sSL https://raw.githubusercontent.com/hydazz/docker-utils/main/docker/ubuntu-archer.sh | bash)
+if [[ "$(arch)" = "x86_64" ]]; then
+	PLEX_ARCH="amd64"
+elif [[ "$(arch)" = "armv7"* ]]; then
+	PLEX_ARCH="armhf"
+elif [[ "$(arch)" = "aarch64" ]]; then
+	PLEX_ARCH="arm64"
+fi
 
 # If docker manages versioning exit
 if [ "${VERSION}" ] && [ "${VERSION}" == 'docker' ]; then
 	echo "Docker is used for versioning skip update check"
 	exit 0
 fi
-
 # test if plex is installed and try re-pulling latest if not
 if (dpkg --get-selections plexmediaserver | grep -wq "install"); then
 	:
