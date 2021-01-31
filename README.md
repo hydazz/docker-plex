@@ -14,7 +14,6 @@ Fork of [linuxserver/docker-plex](https://github.com/linuxserver/docker-plex/)
       -e PUID=1000 \
       -e PGID=1000 \
       -e VERSION=docker \
-      -e UMASK_SET=022 `#optional` \
       -e PLEX_CLAIM= `#optional` \
       -v <path to appdata>:/config \
       -v <path to tv>:/tv \
