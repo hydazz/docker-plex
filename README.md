@@ -30,3 +30,7 @@ Fork of [linuxserver/docker-plex](https://github.com/linuxserver/docker-plex/)
 | `DEBUG` | set `true` to display errors in the Docker logs. When set to `false` the Docker log is completely muted. | `false`       |
 
 **See other variables on the official [README](https://github.com/linuxserver/docker-plex/)**
+
+## Fixing Appdata Permissions
+
+If you ever accidentally screw up the permissions on the appdata folder, run fix-perms within the container. This will restore most of the files/folders with the correct permissions.
