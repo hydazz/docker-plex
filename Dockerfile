@@ -41,18 +41,11 @@ RUN \
 		rm -rf /opencl-intel; \
 		export NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"; \
 	fi && \
-	PLEX_ARCH=$(curl -sSL https://raw.githubusercontent.com/hydazz/docker-utils/main/docker/ubuntu-archer.sh | bash) && \
-	echo "**** install plex ****" && \
-	curl --silent -o \
-		/tmp/plexmediaserver.deb -L \
-		"${PLEX_DOWNLOAD}/${VERSION}/debian/plexmediaserver_${VERSION}_${PLEX_ARCH}.deb" && \
-	dpkg -i /tmp/plexmediaserver.deb && \
 	echo "**** ensure abc user's home folder is /app ****" && \
 	usermod -d /app abc && \
 	echo "**** cleanup ****" && \
 	apt-get clean && \
 	rm -rf \
-		/etc/default/plexmediaserver \
 		/tmp/* \
 		/var/lib/apt/lists/* \
 		/var/tmp/*

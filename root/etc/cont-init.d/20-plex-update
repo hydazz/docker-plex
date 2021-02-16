@@ -10,19 +10,8 @@ fi
 
 # If docker manages versioning exit
 if [ "${VERSION}" ] && [ "${VERSION}" == 'docker' ]; then
-	echo "Docker is used for versioning skip update check"
-	exit 0
-fi
-# test if plex is installed and try re-pulling latest if not
-if (dpkg --get-selections plexmediaserver | grep -wq "install"); then
-	:
-else
-	echo "for some reason plex doesn't appear to be installed, pulling a new copy and exiting out of update script"
-	curl -o /tmp/plexmediaserver.deb -L \
-		"${PLEX_DOWNLOAD}/${REMOTE_VERSION}/debian/plexmediaserver_${REMOTE_VERSION}_${PLEX_ARCH}.deb" &&
-		dpkg -i --force-confold /tmp/plexmediaserver.deb
-	rm -f /tmp/plexmediaserver.deb
-	exit 0
+	echo "Docker is used unsupported"
+	sleeping
 fi
 
 # set no update message
