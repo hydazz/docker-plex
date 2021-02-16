@@ -11,7 +11,7 @@ fi
 # If docker manages versioning exit
 if [ "${VERSION}" ] && [ "${VERSION}" == 'docker' ]; then
 	echo "Docker is used unsupported"
-	sleeping
+	sleep infinity
 fi
 
 # set no update message
