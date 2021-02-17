@@ -19,8 +19,8 @@ jobs:
         run: |
           git config --global user.email "github-actions@github.com"
           git config --global user.name "github-actions"
-          VERSION=$(curl -sX GET "https://plex.tv/api/downloads/5.json" | jq -r .computer.Linux.version)
-          OLD_VERSION=$(curl -sX GET "https://api.github.com/repos/hydazz/docker-plex/releases/latest" | jq -r .tag_name)
+          VERSION=$(curl -sL "https://plex.tv/api/downloads/5.json" | jq -r '.computer.Linux.version')
+          OLD_VERSION=$(curl -sL "https://api.github.com/repos/hydazz/docker-plex/releases/latest" | jq -r '.tag_name')
           printf '{
                "tag_name": "'${VERSION}'",
                "target_commitish": "'${main}'",
