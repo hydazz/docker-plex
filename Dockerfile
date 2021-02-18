@@ -3,7 +3,7 @@ FROM vcxpz/baseimage-ubuntu:latest
 # set version label
 ARG BUILD_DATE
 ARG VERSION
-LABEL build_version="Plex version:- ${VERSION} Build-date:- ${BUILD_DATE}"
+LABEL build_version="Build-date:- ${BUILD_DATE}"
 LABEL maintainer="hydaz"
 
 # global environment settings

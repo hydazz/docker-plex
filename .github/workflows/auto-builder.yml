@@ -5,9 +5,6 @@ name: Auto Builder CI
 on:
   workflow_dispatch:
   repository_dispatch:
-  release:
-    types:
-      - released
 
 jobs:
   ubuntu-latest:
@@ -43,8 +40,6 @@ jobs:
             --platform=linux/amd64 \
             --output "type=image,push=true" \
             --build-arg BUILD_DATE="$(date +%Y-%m-%d)" \
-            --build-arg VERSION=$(curl -sL "https://api.github.com/repos/hydazz/docker-plex/releases/latest" | jq -r '.tag_name') \
-            --tag vcxpz/plex:$(curl -sL "https://api.github.com/repos/hydazz/docker-plex/releases/latest" | jq -r '.tag_name') \
             --tag vcxpz/plex:latest \
             --file Dockerfile .
 
