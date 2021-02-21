@@ -35,9 +35,9 @@ init-system-helpers1.58
 intel-gmmlib20.3.2
 intel-igc-core1.0.6087
 intel-igc-opencl1.0.6087
-intel-level-zero-gpu1.0.18993
-intel-ocloc21.06.18993
-intel-opencl21.06.18993
+intel-level-zero-gpu1.0.19042
+intel-ocloc21.07.19042
+intel-opencl21.07.19042
 jq1.6-1ubuntu0.20.10.1
 libacl12.2.53-8
 libapt-pkg6.02.1.10ubuntu0.2
@@ -123,7 +123,7 @@ libsmartcols12.36-3ubuntu1
 libsqlite3-03.33.0-1ubuntu0.1
 libss21.45.6-1ubuntu1
 libssh-40.9.4-1ubuntu3
-libssl1.11.1.1f-1ubuntu4.1
+libssl1.11.1.1f-1ubuntu4.2
 libstdc++610.2.0-13ubuntu1
 libsystemd0246.6-1ubuntu1.1
 libtasn1-64.16.0-2
@@ -151,7 +151,7 @@ mount2.36-3ubuntu1
 ncurses-base6.2-1
 ncurses-bin6.2-1
 ocl-icd-libopencl12.2.12-4
-openssl1.1.1f-1ubuntu4.1
+openssl1.1.1f-1ubuntu4.2
 passwd1:4.8.1-1ubuntu6
 perl-base5.30.3-4
 pinentry-curses1.1.0-4build1
