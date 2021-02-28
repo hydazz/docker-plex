@@ -35,9 +35,9 @@ init-system-helpers1.58
 intel-gmmlib20.3.2
 intel-igc-core1.0.6087
 intel-igc-opencl1.0.6087
-intel-level-zero-gpu1.0.19042
-intel-ocloc21.07.19042
-intel-opencl21.07.19042
+intel-level-zero-gpu1.0.19096
+intel-ocloc21.08.19096
+intel-opencl21.08.19096
 jq1.6-1ubuntu0.20.10.1
 libacl12.2.53-8
 libapt-pkg6.02.1.10ubuntu0.2
@@ -84,8 +84,8 @@ libkrb5-26-heimdal7.7.0+dfsg-2
 libkrb5-31.17-10ubuntu0.1
 libkrb5support01.17-10ubuntu0.1
 libksba81.4.0-2
-libldap-2.4-22.4.53+dfsg-1ubuntu1.3
-libldap-common2.4.53+dfsg-1ubuntu1.3
+libldap-2.4-22.4.53+dfsg-1ubuntu1.4
+libldap-common2.4.53+dfsg-1ubuntu1.4
 liblz4-11.9.2-2
 liblzma55.2.4-1ubuntu1
 libmount12.36-3ubuntu1
