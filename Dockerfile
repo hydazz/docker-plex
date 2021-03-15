@@ -6,7 +6,7 @@ ARG VERSION
 LABEL build_version="Build-date:- ${BUILD_DATE}"
 LABEL maintainer="hydaz"
 
-# global environment settings
+# environment settings
 ENV DEBIAN_FRONTEND="noninteractive" \
 	PLEX_DOWNLOAD="https://downloads.plex.tv/plex-media-server-new" \
 	PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR="/config/Library/Application Support" \
@@ -14,7 +14,8 @@ ENV DEBIAN_FRONTEND="noninteractive" \
 	PLEX_MEDIA_SERVER_MAX_PLUGIN_PROCS="6" \
 	PLEX_MEDIA_SERVER_USER="abc" \
 	PLEX_MEDIA_SERVER_INFO_VENDOR="Docker" \
-	PLEX_MEDIA_SERVER_INFO_DEVICE="Docker Container"
+	PLEX_MEDIA_SERVER_INFO_DEVICE="Docker Container" \
+	NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"
 
 RUN \
 	echo "**** install runtime packages ****" && \
@@ -24,23 +25,6 @@ RUN \
 		udev \
 		unrar \
 		wget && \
-	if [ "$(arch)" = "x86_64" ]; then \
-		apt-get install -y \
-			beignet-opencl-icd \
-			ocl-icd-libopencl1; \
-		COMP_RT_RELEASE=$(curl -sL "https://api.github.com/repos/intel/compute-runtime/releases/latest" | jq -r '.tag_name'); \
-		COMP_RT_URLS=$(curl -sL "https://api.github.com/repos/intel/compute-runtime/releases/tags/${COMP_RT_RELEASE}" | jq -r '.body' | grep wget | sed 's|wget ||g'); \
-		mkdir -p /opencl-intel; \
-		for i in ${COMP_RT_URLS}; do \
-			i=$(echo ${i} | tr -d '\r'); \
-			echo "**** downloading ${i} ****"; \
-			curl --silent -o "/opencl-intel/$(basename ${i})" \
-				-L "${i}"; \
-		done; \
-		dpkg -i /opencl-intel/*.deb; \
-		rm -rf /opencl-intel; \
-		export NVIDIA_DRIVER_CAPABILITIES="compute,video,utility"; \
-	fi && \
 	echo "**** ensure abc user's home folder is /app ****" && \
 	usermod -d /app abc && \
 	echo "**** cleanup ****" && \
